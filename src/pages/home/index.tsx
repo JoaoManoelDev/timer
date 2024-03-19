@@ -1,37 +1,39 @@
-import { HandPalm, Play } from 'phosphor-react'
-import { useContext } from 'react'
-import * as zod from 'zod'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { FormProvider, useForm } from 'react-hook-form'
+import { FormProvider, useForm } from "react-hook-form"
+import * as zod from "zod"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { HandPalm, Play } from "phosphor-react"
 
-import { Countdown } from './components/Countdown'
-import { NewCycleForm } from './components/NewCycleForm'
+import { Countdown } from "./components/countdown"
+import { NewCycleForm } from "./components/new-cycle-form"
 
 import {
   HomeContainer,
   StartCountdownButton,
   StopCountdownButton,
-} from './styles'
-import { CyclesContext } from '../../contexts/CyclesContext'
+} from "./styles"
+import { useCyclesContext } from "../../contexts/cycles-context"
 
 const newCycloFormValidationSchema = zod.object({
-  task: zod.string().min(1, 'Informe a tarefa'),
+  task: zod.string().min(1, "Informe a tarefa"),
   minutesAmount: zod
     .number()
-    .min(1, 'O ciclo precisa ser de no minimo 5 minutos.')
-    .max(60, 'O ciclo precisa ser de no máximo 60 minutos.'),
+    .min(1, "O ciclo precisa ser de no mínimo 5 minutos.")
+    .max(60, "O ciclo precisa ser de no máximo 60 minutos."),
 })
 
 type newCycleFormData = zod.infer<typeof newCycloFormValidationSchema>
 
 export function Home() {
-  const { activeCycle, createNewCycle, interruptCurrentCycle } =
-    useContext(CyclesContext)
+  const {
+    createNewCycle,
+    activeCycle,
+    interruptCurrentCycle
+  } = useCyclesContext()
 
   const newCycleForm = useForm<newCycleFormData>({
     resolver: zodResolver(newCycloFormValidationSchema),
     defaultValues: {
-      task: '',
+      task: "",
       minutesAmount: 0,
     },
   })
@@ -39,11 +41,12 @@ export function Home() {
   const { reset, watch, handleSubmit } = newCycleForm
 
   function handleCreateNewCycle(data: newCycleFormData) {
+    console.log("Iniciou ciclo")
     createNewCycle(data)
     reset()
   }
 
-  const task = watch('task')
+  const task = watch("task")
   const isSubmitDisabled = !task
 
   return (
