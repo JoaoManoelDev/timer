@@ -1,7 +1,9 @@
 import { Outlet } from "react-router-dom"
 
 import { Header } from "../../components/header"
-import { LayoutContainer } from "./styles"
+import { ToggleTheme } from "../../components/toggle-theme"
+
+import { LayoutContainer, Toggle } from "./styles"
 
 export const AppLayout = () => {
   return (
@@ -11,6 +13,10 @@ export const AppLayout = () => {
       <div>
         <Outlet />
       </div>
+
+      <Toggle>
+        <ToggleTheme />
+      </Toggle>
     </LayoutContainer>
-    )
+  )
 }

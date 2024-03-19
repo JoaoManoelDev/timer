@@ -12,3 +12,9 @@ export const LayoutContainer = styled.div`
   display: flex;
   flex-direction: column;
 `
+
+export const Toggle = styled.div`
+  margin-top: auto;
+  display: flex;
+  justify-content: end;
+`
