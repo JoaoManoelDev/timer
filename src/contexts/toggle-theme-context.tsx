@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react"
+import { createContext, useContext, useEffect, useState } from "react"
 
 interface ToggleThemeContextType {
   activeTheme: string
@@ -14,12 +14,32 @@ interface ToggleThemeContextProviderProps {
 export const ToggleThemeContextProvider = ({
   children
 }: ToggleThemeContextProviderProps) => {
-  const [activeTheme, setActiveTheme] = useState("light")
+  const [activeTheme, setActiveTheme] = useState(() => {
+    const storageStateAsJSON = localStorage.getItem(
+      "@ignite-timer:theme-state-1.0.0",
+    )
+
+    if (storageStateAsJSON
+       !== null
+       && storageStateAsJSON
+       && Object.keys(storageStateAsJSON).length !== 0
+     ) {
+      return JSON.parse(storageStateAsJSON)
+    }
+  })
+
+  console.log("MEU TEMA ATIVO NO USE EFFECT", activeTheme)
 
   const toggleTheme = () => {
     if (activeTheme === "light") setActiveTheme("dark")
     if (activeTheme === "dark") setActiveTheme("light")
   }
+
+  useEffect(() => {
+    const stateJSON = JSON.stringify(activeTheme)
+
+    localStorage.setItem('@ignite-timer:theme-state-1.0.0', stateJSON)
+  }, [activeTheme])
 
   return (
     <ToggleThemeContext.Provider
