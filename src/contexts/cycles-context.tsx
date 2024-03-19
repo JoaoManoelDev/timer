@@ -50,7 +50,11 @@ export const CyclesContextProvider = ({
        "@ignite-timer:cycles-state-1.0.0",
      )
 
-     if (storageStateAsJSON !== null) {
+     if (storageStateAsJSON
+        !== null
+        && storageStateAsJSON
+        && Object.keys(storageStateAsJSON).length !== 0
+      ) {
        return JSON.parse(storageStateAsJSON)
      }
    },
