@@ -1,6 +1,6 @@
 # ignite-feed
 
-Projeto realizado para solidificar conceitos do ReactJS.
+Projeto realizado para solidificar conceitos como, useReducer, context API e Local Storage.
 
 ### 🎨 Layout Web
 
@@ -13,7 +13,7 @@ Projeto realizado para solidificar conceitos do ReactJS.
 ### Pré-requisitos
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
-[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/), [yarn](https://yarnpkg.com/). 
+[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/). 
 Além disto é recomendado ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/).
 
 #### 🎲 Rodando o app
@@ -21,16 +21,16 @@ Além disto é recomendado ter um editor para trabalhar com o código como [VSCo
 ```bash
 
 # Clone este repositório
-$ git clone git@github.com:JoaoManoelDev/ignite-timer.git
+$ git clone git@github.com:JoaoManoelDev/timer.git
 
 # Acesse a pasta do projeto no terminal/cmd
-$ cd ignite-feed
+$ cd timer
 
 # Instale as dependências
-$ yarn add
+$ npm instal
 
 # Execute a aplicação em modo de desenvolvimento
-$ yarn dev
+$ npm run dev
 
 # O servidor inciará na porta:3000 - acesse http://localhost:3000
 
