@@ -60,7 +60,7 @@ export const CyclesContextProvider = ({
 
      return {
       "cycles": [],
-      "activeCycleId": null
+      "activeCycleId": ""
     }
    },
   )
