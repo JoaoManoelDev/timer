@@ -16,7 +16,7 @@ export const ToggleThemeContextProvider = ({
 }: ToggleThemeContextProviderProps) => {
   const [activeTheme, setActiveTheme] = useState(() => {
     const storageStateAsJSON = localStorage.getItem(
-      "@ignite-timer:theme-state-1.0.0",
+      "@timer:theme-state-1.0.0",
     )
 
     if (storageStateAsJSON
@@ -38,7 +38,7 @@ export const ToggleThemeContextProvider = ({
   useEffect(() => {
     const stateJSON = JSON.stringify(activeTheme)
 
-    localStorage.setItem('@ignite-timer:theme-state-1.0.0', stateJSON)
+    localStorage.setItem("@timer:theme-state-1.0.0", stateJSON)
   }, [activeTheme])
 
   return (
