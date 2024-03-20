@@ -1,6 +1,6 @@
 # ignite-feed
 
-Projeto realizado para solidificar conceitos como, useReducer, context API e Local Storage.
+Projeto realizado para solidificar conceitos como useReducer, context API e Local Storage.
 
 ### 🎨 Layout Web
 
