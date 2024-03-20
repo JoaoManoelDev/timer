@@ -15,7 +15,7 @@ import {
 } from "../reducers/cycles/actions"
 
 interface CycleContextType {
-  cycles: Cycle[]
+  cycles: Cycle[] | []
   activeCycle: Cycle | undefined
   activeCycleId: string | null
   amountSecondPassed: number
@@ -57,6 +57,11 @@ export const CyclesContextProvider = ({
       ) {
        return JSON.parse(storageStateAsJSON)
      }
+
+     return {
+      "cycles": [],
+      "activeCycleId": null
+    }
    },
   )
 

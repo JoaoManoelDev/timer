@@ -26,9 +26,9 @@ export const ToggleThemeContextProvider = ({
      ) {
       return JSON.parse(storageStateAsJSON)
     }
-  })
 
-  console.log("MEU TEMA ATIVO NO USE EFFECT", activeTheme)
+    return "light"
+  })
 
   const toggleTheme = () => {
     if (activeTheme === "light") setActiveTheme("dark")
